@@ -1,0 +1,12 @@
+{
+    "name": "acs/ping-pong",
+    "type": "autoload",
+    "require": {
+        "roots/bedrock-autoloader": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Acs\\PingPong\\": "src/"
+        }
+    }
+}
