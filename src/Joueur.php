@@ -13,8 +13,4 @@
             echo $this->nomDuPlayer.'<br>';
         }
     }
-
-    
-    
-   
 ?>
