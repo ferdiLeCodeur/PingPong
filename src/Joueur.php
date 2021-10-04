@@ -10,7 +10,7 @@
         }
 
         public function afficheNom(){
-            echo $this->nomDuPlayer.'<br>';
+            echo $this->nomDuPlayer;
         }
     }
 ?>

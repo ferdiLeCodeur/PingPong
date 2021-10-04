@@ -17,46 +17,50 @@
         use Acs\PingPong\Set;
         use Acs\PingPong\Partie;
 
-        $player1 = new Joueur('croumchouszz');
-        $player2 = new Joueur('lopette');
+        $arrayAllPlayer = array();
+        $arrayAllPlayer[0] = new Joueur('croumchouszz');
+        $arrayAllPlayer[1] = new Joueur('lopette');
+        var_dump($arrayAllPlayer[1]);
 
-        //on créer une partie et on verifie si au
-        // moins 2 joueurs est present
+        $arraySetAllWin = array();
 
         $demarreGame = new Partie(true, true);
         $demarreGame->demarreJeu();
 
         if( $demarreGame->demarreJeu()){
 
-                $myPartie = new Set(0,0);
-
-            while($myPartie->getVictoire()){
+            $mySet = new Set(0,0);
+        
+            for ($i=0; $i < 200; $i++) { 
 
                 if(rand(0,1)) {
-                    $myPartie->addScore(1);
+                    $mySet->addSetScore(1);
                 }else{
-                    $myPartie->addScore(2);
+                    $mySet->addSetScore(2);
                 }
 
-                echo $player1->afficheNom()." ". $myPartie->getScore(1) ." <br />\n";
-                echo $player2->afficheNom()." ". $myPartie->getScore(2) ." <br />\n";
+                echo $arrayAllPlayer[0]->afficheNom()." : ". $mySet->getSetScore(1) ." <br />\n";
+                echo $arrayAllPlayer[1]->afficheNom()." : ". $mySet->getSetScore(2) ." <br />\n";
 
-                $gagnant = $myPartie->getWinPlayer();
+                $gagnant = $mySet->getWinPlayer();
 
                 if($gagnant!= null){
                     echo " Fin de set! <br />\n";
                     
                     if($gagnant == 1){
-                        echo "gagnant du SET = ". $player1->afficheNom() ."<br />\n";
+                        echo " est gagnant du set  ". $arrayAllPlayer[0]->afficheNom() ."<br />\n";
+                        array_push($arraySetAllWin, 1);
+                        
                     }else{
-                        echo "gagnant du SET = ". $player2->afficheNom() ."<br />\n";
-                    break;
+                        echo " est gagnant du set  ". $arrayAllPlayer[1]->afficheNom() ."<br />\n";
+                        array_push($arraySetAllWin, 2);
+                        
                     }
                 }
+                var_dump($arraySetAllWin);
+                
             }
-        }
-
-
+        }       
     ?>
 </body>
 

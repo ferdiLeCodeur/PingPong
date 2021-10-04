@@ -1,68 +1,67 @@
 <?php
 namespace Acs\PingPong;
-// Cette class va verifier si 1 SET est terminé 
 
 class Set {
     private bool $victoire = true;
-    private int $scorePlayer1 ;
-    private int $scorePlayer2 ;
+    private int $scoreSetPlayer1 ;
+    private int $scoreSetPlayer2 ;
+    private array $setTableau = array();
 
-    function __construct( int $scorePlayer1 , int $scorePlayer2){
-        $this->scorePlayer1 = $scorePlayer1;
-        $this->scorePlayer2 = $scorePlayer2;
+    function __construct( int $scoreSetPlayer1 , int $scoreSetPlayer2)
+    {
+        $this->scoreSetPlayer1 = $scoreSetPlayer1;
+        $this->scoreSetPlayer2 = $scoreSetPlayer2;
     }
 
-    //ajout un score à un des joueurs
-    public function addScore(int $playerNum){
-
+    public function addSetScore(int $playerNum)
+    {
         if($playerNum ==1){
-            $this->scorePlayer1++;
+            $this->scoreSetPlayer1++;
+            
         }else{
-            $this->scorePlayer2++;
+            $this->scoreSetPlayer2++;
         }
     }
 
-    //renvoie le score 
-    public function getScore(int $playerNum){
-
+    public function getSetScore(int $playerNum)
+    {
         if($playerNum ==1){
-            return $this->scorePlayer1;
+            return $this->scoreSetPlayer1;
         }else{
-            return $this->scorePlayer2;
+            return $this->scoreSetPlayer2;
         }
     }
 
-    //renvoie le gagnant ou nul
-    public function getWinPlayer(){
-
-        if(!$this->isWinSet()){
+    public function getWinPlayer()
+    {
+        if(!$this->isWinOneSet()){
             return null;
         }
-        if ($this->getScore(1)> $this->getScore(2)){
+        if ($this->getSetScore(1)> $this->getSetScore(2)){
             return 1;
         }else{
             return 2;
         }
     }
 
-    // Si le set est gagnant
-    public function isWinSet()
+    public function isWinOneSet()
     {
-        if($this->getScore(1) >= 11 or $this->getScore(2) >= 11 ){
-            echo "Score depasse 11pts <br />\n";
+        if($this->getSetScore(1) >= 11 or $this->getSetScore(2) >= 11 ){
+            // echo "Score depasse 11pts <br />\n";
         
-            if(abs($this->getScore(1) - $this->getScore(2))>= 2){
-                echo "Ecart de 2 points <br />\n";
+            if(abs($this->getSetScore(1) - $this->getSetScore(2))>= 2){
+                // echo "Ecart de 2 points <br />\n";
                 return true;
             }
         }
         return false;
     }
 
-    //renvoie true ou false si 
-    public function getVictoire(){
+    public function getSetVictoire()
+    {
         return $this->victoire;
     }
+
 }
 
 
