@@ -1,0 +1,18 @@
+@startuml useCase
+
+left to right direction
+actor "arbitre" as ACTOR_ARBITRE
+
+rectangle Application {
+  usecase "Signaler joueur" as SIGNALER_PRESENCE
+  usecase "demarre partie" as DEMARRER_PARTIE
+  usecase "ajouter des points" as AJOUTER_POINTS
+  usecase "demarrer un set" as DEMARRER_SET
+}
+
+ACTOR_ARBITRE --> DEMARRER_PARTIE
+ACTOR_ARBITRE --> AJOUTER_POINTS
+ACTOR_ARBITRE --> DEMARRER_SET
+ACTOR_ARBITRE --> SIGNALER_PRESENCE
+
+@enduml
