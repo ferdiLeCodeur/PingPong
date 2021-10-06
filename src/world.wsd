@@ -1,0 +1,47 @@
+@startuml Partie
+
+Class Partie{
+    - demarre
+    - player1Here
+    - player2Here
+
+    + demarreJeu():bool
+}
+
+Class Joueur{
+
+    - nomDuPlayer
+
+    + afficheNom():void
+}
+
+Class Set{
+    - victoire
+    - scoreSetPlayer1
+    - scoreSetPlayer2
+    - setTableau
+
+    + addSetScore():int
+    + getSetScore():int
+    + getWinPlayer():int
+    + isWinOneSet():bool
+    + getSetVictoire():void
+
+}
+
+interface index{
+
+
+
+
+}
+
+index <--> Partie
+index <-- Joueur
+index <--> Set
+
+
+
+
+@enduml
+
