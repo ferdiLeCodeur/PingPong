@@ -1,0 +1,62 @@
+@startuml "FaitChier"
+
+
+
+rectangle rencontre{
+    class match{
+
+
+    }
+
+    class equipe{
+        -nomDeEquipe
+    }
+
+    class joueur{
+        -nom 
+        -classement
+    }
+
+
+}
+rectangle arbitre{
+
+    class arbitre{
+    }
+
+    class set{
+    }
+
+
+    class service{
+        -piece
+    }
+}
+
+rectangle classement{
+
+    class score{
+    }
+
+    class classement{
+    }
+
+    class historique{
+    }
+}
+
+arbitre --> service
+arbitre --> set
+
+match --> equipe
+equipe --> joueur
+
+service --> match
+set --> historique
+set --> classement 
+
+
+
+
+
+@enduml

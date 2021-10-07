@@ -5,12 +5,21 @@
 <head>
     <meta charset="utf-8">
     <title>Ping Pong</title>
-    <meta name="description" content="">
 
-    <link rel="stylesheet" href="style.css">
+
+    <link href="../styles.css" rel="stylesheet" type="text/css" media="all" />
 </head>
 
-<body>
+<body >
+
+    <div class="container">
+        <div class="background">
+            <div class="player1"> <img src="../images/joueur1.png" alt="player1" id="Player1"> </div>
+            <div class="player2"> <img src="../images/joueur2.png" alt="player2" id="Player2"> </div>
+            <div class="score"> <img src="../images/score.png" alt="score" id="Score"> </div>
+        </div>
+    </div>
+
     <?php
         require 'vendor/autoload.php';
         use Acs\PingPong\Joueur;
@@ -78,6 +87,7 @@
 
 
     ?>
+
 </body>
 
 </html>
