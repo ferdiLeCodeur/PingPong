@@ -20,7 +20,6 @@
         $arrayPlayer = array();
         $arrayPlayer[0] = new Joueur('croumchouszz');
         $arrayPlayer[1] = new Joueur('lopette');
-        //var_dump($arrayAllPlayer[1]);
 
         $arraySetAllWin = array();
 
@@ -31,7 +30,7 @@
 
             $mySet = new Set(0,0);
         
-            for ($i=0; $i < 105; $i++) { 
+            for ($i=0; $i < 150; $i++) { 
 
                 if(rand(0,1)) {
                     $mySet->addSetScore(1);
@@ -45,7 +44,7 @@
                 $gagnant = $mySet->getWinPlayer();
 
                 if($gagnant!= null){
-                    // echo " Fin de set! <br />\n";
+                     //echo " Fin de set! <br />\n";
                     
                     if($gagnant == 1){
                         echo " est gagnant du set  ". $arrayPlayer[0]->afficheNom() ."<br />\n";
@@ -55,21 +54,26 @@
                         echo " est gagnant du set  ". $arrayPlayer[1]->afficheNom() ."<br />\n";
                         array_push($arraySetAllWin, 2);
                         $mySet = new Set(0,0);
-
                     }
                 }
             }  
         }
+        $test = array();
+        $scoreJoueur1 = 0;
+        $scoreJoueur2 = 0;
 
-
-        var_dump(array_count_values($arraySetAllWin));
-        var_dump($arraySetAllWin); 
-
-
-        if ($arraySetAllWin[1]>=3){
-             echo " lopette is winner";
-        }elseif($arraySetAllWin[2]>=3){
-            echo "chroumchouzzz is winner";
+        for ($i=0; $i <= 4; $i++) { 
+            $test[$i] = $arraySetAllWin[$i];
+            if ($test[$i] ==1){
+                $scoreJoueur1 = $scoreJoueur1 + 1;
+            }else{
+                $scoreJoueur2 = $scoreJoueur2 + 1;
+            }    
+        }
+        if ($scoreJoueur1 >= 3){
+            echo "CHROUMMMCHOUZZZZ IS WINNER. ";
+        }else{
+            echo "LOPETTE IS WINNER. ";
         }
 
 
