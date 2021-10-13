@@ -1,36 +1,38 @@
 @startuml "FaitChier"
+skinparam linetype polyline
+skinparam linetype ortho
 
 
 
 rectangle rencontre{
     class match{
-
-
     }
 
     class equipe{
         -nomDeEquipe
+        -nombreJoueur
     }
 
     class joueur{
         -nom 
         -classement
+        -capitaine
     }
-
 
 }
 rectangle arbitre{
 
     class arbitre{
+
     }
+
+    
 
     class set{
+
+        +services
     }
 
-
-    class service{
-        -piece
-    }
 }
 
 rectangle classement{
@@ -45,15 +47,18 @@ rectangle classement{
     }
 }
 
-arbitre --> service
-arbitre --> set
 
-match --> equipe
+
+arbitre --[#1117e6]> match
+match --> set 
+
+match --> equipe 
 equipe --> joueur
 
-service --> match
-set --> historique
-set --> classement 
+
+score --> historique
+set <-- classement 
+set <-- score
 
 
 

@@ -1,6 +1,8 @@
 <?php
     namespace Acs\PingPong;
 
+    
+
     class Joueur{
         
         private string $nomDuPlayer ;
